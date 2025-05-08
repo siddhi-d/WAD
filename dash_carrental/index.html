@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental & Booking Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #2E3A59;
+        }
+
+        .navbar-brand {
+            font-family: 'Raleway', sans-serif;
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .header {
+            background-color: #2E3A59;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            font-size: 2.5rem;
+        }
+
+        .service-card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card img {
+            width: 250px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .footer {
+            background-color: #2E3A59;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .service-card h5 {
+            margin-top: 15px;
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .button {
+            background-color: #FF5722;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #E64A19;
+        }
+
+        .modal-content {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Car Rental & Booking</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>Welcome to Car Rental & Booking Services</h1>
+        <p>Your Trusted Partner for Car Rentals in the City</p>
+    </div>
+
+    <!-- Services Section -->
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Our Car Rental Services</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="service-card">
+                    <img src="images/sedan.jpg" alt="Sedan Car">
+                    <h5>Sedan Car</h5>
+                    <p>Comfortable and spacious for city tours.</p>
+                    <button class="button" onclick="showOffers('Sedan')">View Offers</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card">
+                    <img src="images/suv.jpg" alt="SUV Car">
+                    <h5>SUV Car</h5>
+                    <p>Ideal for long trips and families.</p>
+                    <button class="button" onclick="showOffers('SUV')">View Offers</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card">
+                    <img src="images/luxury.jpg" alt="Luxury Car">
+                    <h5>Luxury Car</h5>
+                    <p>For those looking for luxury and performance.</p>
+                    <button class="button" onclick="showOffers('Luxury')">View Offers</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Offers -->
+    <div class="modal fade" id="offersModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Offers</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalContent">
+                    <!-- Offers content will be dynamically inserted here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 Car Rental & Booking. All rights reserved.</p>
+    </div>
+
+    <!-- Bootstrap and JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript for Show Offers -->
+    <script>
+        function showOffers(service) {
+            let offers = "";
+            if (service === "Sedan") {
+                offers = "<ul><li>10% off on first booking</li><li>Free delivery for bookings over $100</li></ul>";
+            } else if (service === "SUV") {
+                offers = "<ul><li>5% off for families</li><li>Free GPS included for every booking</li></ul>";
+            } else if (service === "Luxury") {
+                offers = "<ul><li>10% off on weekend bookings</li><li>Free chauffeur service for bookings over $300</li></ul>";
+            }
+            document.getElementById('modalTitle').innerText = service + ' - Offers';
+            document.getElementById('modalContent').innerHTML = offers;
+            var modal = new bootstrap.Modal(document.getElementById('offersModal'));
+            modal.show();
+        }
+    </script>
+
+</body>
+
+</html>

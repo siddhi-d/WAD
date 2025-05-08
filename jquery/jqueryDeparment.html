@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Department Info</title>
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <style>
+    /* Styling the grid for departments */
+    .dept-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Make it responsive */
+      gap: 15px;
+      text-align: center;
+      margin: 20px;
+    }
+
+    /* Styling each department box */
+    .dept-box {
+      padding: 20px 0;
+      border-radius: 8px;
+      color: white;
+      font-size: 1.2em;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Different background colors for each department */
+    .it-box {
+      background-color: #007bff; /* Blue for IT */
+    }
+    .comp-box {
+      background-color: #28a745; /* Green for Computer */
+    }
+    .etc-box {
+      background-color: #17a2b8; /* Cyan for ETC */
+    }
+    .mech-box {
+      background-color: #ffc107; /* Yellow for Mechanical */
+    }
+    .elect-box {
+      background-color: #dc3545; /* Red for Electrical */
+    }
+
+    /* Styling for the buttons */
+    .dept-btn {
+      display: inline-block;
+      background-color: #f47c2b;
+      color: black;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .dept-btn:hover {
+      background-color: #e56c1b;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Home Page -->
+<div data-role="page" id="home">
+  <div data-role="header">
+    <h1>Departments</h1>
+  </div>
+  <div data-role="content">
+    <div class="dept-grid">
+      <!-- IT Department -->
+      <div>
+        <div class="dept-box it-box">
+          <p>IT</p>
+        </div>
+        <a href="#itPage" class="dept-btn" data-role="button">Go to Info</a>
+      </div>
+      <!-- COMP Department -->
+      <div>
+        <div class="dept-box comp-box">
+          <p>COMP</p>
+        </div>
+        <a href="#compPage" class="dept-btn" data-role="button">Go to Info</a>
+      </div>
+      <!-- ETC Department -->
+      <div>
+        <div class="dept-box etc-box">
+          <p>ETC</p>
+        </div>
+        <a href="#etcPage" class="dept-btn" data-role="button">Go to Info</a>
+      </div>
+      <!-- MECH Department -->
+      <div>
+        <div class="dept-box mech-box">
+          <p>MECH</p>
+        </div>
+        <a href="#mechPage" class="dept-btn" data-role="button">Go to Info</a>
+      </div>
+      <!-- ELECT Department -->
+      <div>
+        <div class="dept-box elect-box">
+          <p>ELECT</p>
+        </div>
+        <a href="#electPage" class="dept-btn" data-role="button">Go to Info</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Department Info Pages -->
+<div data-role="page" id="itPage">
+  <div data-role="header"><h1>IT Department</h1></div>
+  <div data-role="content"><p>Information Technology details here.</p></div>
+</div>
+
+<div data-role="page" id="compPage">
+  <div data-role="header"><h1>Computer Department</h1></div>
+  <div data-role="content"><p>Computer Engineering details here.</p></div>
+</div>
+
+<div data-role="page" id="etcPage">
+  <div data-role="header"><h1>ETC Department</h1></div>
+  <div data-role="content"><p>Electronics & Telecommunication details here.</p></div>
+</div>
+
+<div data-role="page" id="mechPage">
+  <div data-role="header"><h1>Mechanical Department</h1></div>
+  <div data-role="content"><p>Mechanical Engineering details here.</p></div>
+</div>
+
+<div data-role="page" id="electPage">
+  <div data-role="header"><h1>Electrical Department</h1></div>
+  <div data-role="content"><p>Electrical Engineering details here.</p></div>
+</div>
+
+</body>
+</html>

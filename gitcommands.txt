@@ -1,0 +1,28 @@
+
+git --version
+git init
+git add .
+git remote add origin "https://github.com/siddhi-d/WADexam.git"
+git status
+git commit -m "add wadpract1"
+git push -u origin master
+
+git branch f-1
+
+git checkout f-1
+
+
+echo "Hello This is new feature" >>f-1.txt
+
+git add f-1.txt
+
+git commit -m "added new feature"
+
+
+git push -u origin f-1.txt
+git push origin f-1.txt
+git push origin f-1
+git checkout master
+git pull origin master
+git merge f-1
+git push origin master

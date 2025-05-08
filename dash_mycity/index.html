@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the landmarks of Pune">
+    <title>MYCITY - Explore Pune</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .city-title { font-size: 3rem; font-weight: bold; text-align: center; margin-top: 20px; }
+        .footer { background-color: #343a40; color: #fff; padding: 15px 0; text-align: center; position: fixed; width: 100%; bottom: 0; }
+        .navbar { margin-bottom: 20px; }
+        .btn-landmark { margin: 5px; }
+        .landmark-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .landmark-grid img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; }
+        #infoModal img { max-width: 100%; height: auto; object-fit: contain; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">MYCITY - Pune</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#landmarks">Landmarks</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container mb-5 pb-5">
+    <h1 class="city-title">Pune</h1>
+
+    <div id="landmarks" class="landmark-grid">
+        <div>
+            <img src="images/shaniwar_wada.jpg" alt="Shaniwar Wada" class="img-fluid">
+            <h3 style="color: #ff5733;">Shaniwar Wada</h3>
+            <button class="btn btn-primary btn-landmark" onclick="showInfo('Shaniwar Wada', 'images/shaniwar_wada.jpg')">View Info</button>
+        </div>
+        <div>
+            <img src="images/aga_khan_palace.jpg" alt="Aga Khan Palace" class="img-fluid">
+            <h3 style="color: #33c4ff;">Aga Khan Palace</h3>
+            <button class="btn btn-secondary btn-landmark" onclick="showInfo('Aga Khan Palace', 'images/aga_khan_palace.jpg')">View Info</button>
+        </div>
+        <div>
+            <img src="images/sinhagad_fort.jpg" alt="Sinhagad Fort" class="img-fluid">
+            <h3 style="color: #82e33c;">Sinhagad Fort</h3>
+            <button class="btn btn-success btn-landmark" onclick="showInfo('Sinhagad Fort', 'images/sinhagad_fort.jpg')">View Info</button>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>&copy; 2025 MYCITY - Pune. All rights reserved.</p>
+</div>
+
+<!-- Info Modal -->
+<div class="modal fade" id="infoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <img id="modalImage" src="" alt="">
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showInfo(landmark, image) {
+        document.getElementById('modalTitle').innerText = landmark;
+        document.getElementById('modalImage').src = image;
+        document.getElementById('modalDescription').innerText = landmark + ' information will be displayed here.';
+        var myModal = new bootstrap.Modal(document.getElementById('infoModal'));
+        myModal.show();
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

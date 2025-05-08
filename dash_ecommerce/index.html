@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; }
+        .navbar { margin-bottom: 20px; }
+        .search-box { max-width: 400px; }
+        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 10px; }
+        .card img { border-top-left-radius: 10px; border-top-right-radius: 10px; height: 150px; object-fit: cover; }
+        .card-body { padding: 15px; }
+        .card-title { font-size: 1.2rem; }
+        .product-info { font-size: 0.9rem; color: #555; }
+        .cart-dropdown { width: 300px; padding: 15px; background-color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">E-commerce Dashboard</a>
+        <div class="search-box d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search">
+            <button class="btn btn-outline-light" type="submit">Search</button>
+        </div>
+        <!-- Cart -->
+        <div class="d-flex">
+            <button class="btn btn-outline-light position-relative" onclick="toggleCart()">
+                <i class="bi bi-cart"></i> Cart 
+                <span class="badge bg-danger" id="cartCount">0</span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Cart Dropdown -->
+<div id="cartDropdown" class="cart-dropdown" style="display: none;">
+    <h5>Shopping Cart</h5>
+    <ul id="cartItems">
+        <!-- Cart items will be dynamically added here -->
+    </ul>
+    <p><strong>Total: ₹<span id="totalPrice">0</span></strong></p>
+</div>
+
+<!-- Dashboard Content -->
+<div class="container">
+    <h2 class="mb-4">Products Overview</h2>
+    <div class="row">
+        <!-- Product 1 -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="images/product1.jpg" alt="Sandalwood Soap">
+                <div class="card-body">
+                    <h5 class="card-title">Sandalwood Soap</h5>
+                    <p class="product-info">Price: ₹100</p>
+                    <button class="btn btn-primary btn-sm">View Details</button>
+                    <button class="btn btn-success btn-sm mt-2" onclick="addToCart('Sandalwood Soap', 100)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="images/product2.jpg" alt="Handcrafted Brass Lamp">
+                <div class="card-body">
+                    <h5 class="card-title">Handcrafted Brass Lamp</h5>
+                    <p class="product-info">Price: ₹1500</p>
+                    <button class="btn btn-primary btn-sm">View Details</button>
+                    <button class="btn btn-success btn-sm mt-2" onclick="addToCart('Handcrafted Brass Lamp', 1500)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <!-- Product 3 -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="images/product3.jpg" alt="Silk Saree">
+                <div class="card-body">
+                    <h5 class="card-title">Silk Saree</h5>
+                    <p class="product-info">Price: ₹5000</p>
+                    <button class="btn btn-primary btn-sm">View Details</button>
+                    <button class="btn btn-success btn-sm mt-2" onclick="addToCart('Silk Saree', 5000)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Initialize an empty cart
+    let cart = [];
+    let total = 0;
+
+    // Function to add products to the cart
+    function addToCart(productName, productPrice) {
+        // Add item to the cart
+        cart.push({ name: productName, price: productPrice });
+
+        // Update total price
+        total += productPrice;
+
+        // Update cart count
+        document.getElementById("cartCount").textContent = cart.length;
+
+        // Display cart items
+        displayCart();
+    }
+
+    // Function to display cart items and total price
+    function displayCart() {
+        const cartItemsList = document.getElementById("cartItems");
+        const totalPriceElement = document.getElementById("totalPrice");
+
+        // Clear previous cart items
+        cartItemsList.innerHTML = '';
+
+        // Add current cart items
+        cart.forEach(item => {
+            const listItem = document.createElement("li");
+            listItem.textContent = `${item.name} - ₹${item.price}`;
+            cartItemsList.appendChild(listItem);
+        });
+
+        // Update total price
+        totalPriceElement.textContent = total;
+    }
+
+    // Toggle cart dropdown visibility
+    function toggleCart() {
+        const cartDropdown = document.getElementById("cartDropdown");
+        cartDropdown.style.display = (cartDropdown.style.display === "none" || cartDropdown.style.display === "") ? "block" : "none";
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

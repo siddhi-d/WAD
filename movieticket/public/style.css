@@ -1,0 +1,91 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('https://images.unsplash.com/photo-1546362749-49f09be9c34b') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  header {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .container {
+    background-color: rgba(255, 255, 255, 0.9); /* Light semi-transparent background for readability */
+    border-radius: 12px;
+    padding: 30px;
+    width: 320px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  h1, h2 {
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 700;
+  }
+  
+  label {
+    font-size: 16px;
+    margin-top: 15px;
+    display: block;
+    text-align: left;
+    color: #333; /* Darker color for labels */
+  }
+  
+  select, input {
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  select {
+    background-color: #f8f8f8;
+  }
+  
+  button {
+    padding: 12px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+  
+  #confirmation {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333; /* Darker text for confirmation */
+  }
+  
+  /* Style for form groups (labels and inputs) */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      width: 80%;
+    }
+  }
+  

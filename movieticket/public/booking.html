@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Ticket - Movie Ticket Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f1f1f1;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        input {
+            display: block;
+            margin: 10px 0;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .response {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎥 Book Ticket</h1>
+        <p id="movie-name"></p>
+        <input type="text" id="time" placeholder="Show Time (e.g., 7:30 PM)" required>
+        <input type="number" id="seats" placeholder="Number of Seats" min="1" required>
+        <button onclick="bookTicket()">Book Ticket</button>
+        <div id="response" class="response"></div>
+    </div>
+
+    <script>
+        // Get the movie ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const movieId = urlParams.get('movieId');
+
+        const movies = [
+            { id: 1, name: 'Movie A' },
+            { id: 2, name: 'Movie B' },
+            { id: 3, name: 'Movie C' }
+        ];
+
+        // Find the movie based on the ID
+        const movie = movies.find(m => m.id === parseInt(movieId));
+
+        if (movie) {
+            document.getElementById('movie-name').textContent = `Movie: ${movie.name}`;
+        }
+
+        async function bookTicket() {
+            const time = document.getElementById('time').value.trim();
+            const seats = document.getElementById('seats').value.trim();
+            const responseDiv = document.getElementById('response');
+            
+            // Input validation
+            if (!time || !seats) {
+                alert("❌ Please fill out all fields.");
+                return;
+            }
+
+            if (isNaN(seats) || seats <= 0) {
+                alert("❌ Please enter a valid number of seats.");
+                return;
+            }
+
+            // Show a loading message before booking
+            responseDiv.textContent = "Processing your booking...";
+
+            try {
+                const res = await fetch('/book', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ movie: movie.name, time, seats })
+                });
+
+                const data = await res.json();
+                if (res.status === 200) {
+                    alert("✅ Booking successful!");
+                    responseDiv.textContent = "Booking Successful!";
+                    responseDiv.style.color = "green";
+                } else {
+                    alert("❌ " + data.message);
+                    responseDiv.textContent = data.message;
+                    responseDiv.style.color = "red";
+                }
+            } catch (error) {
+                alert("❌ There was an error with the booking.");
+                responseDiv.textContent = "Error in booking.";
+                responseDiv.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

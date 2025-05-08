@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tourist Places of India</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #343a40;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    /* Places Gallery */
+    .places {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+
+    .place {
+      width: 22%;
+      margin: 10px 0;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .place:hover {
+      transform: scale(1.1);
+    }
+
+    .place img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .place h2 {
+      margin-top: 10px;
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    /* Place Information */
+    .info {
+      display: none;
+      padding: 10px;
+      background-color: #f8f9fa;
+      font-size: 1em;
+      color: #555;
+      text-align: left;
+    }
+
+    .info p {
+      margin: 10px 0;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Explore Tourist Places of India</h1>
+  </header>
+
+  <section class="places">
+    <!-- Taj Mahal -->
+    <div class="place" id="tajmahal" onclick="toggleInfo('tajmahal')">
+      <img src="images/tajmahal.jpg" alt="Taj Mahal">
+      <h2>Taj Mahal</h2>
+      <div class="info" id="tajmahal-info">
+        <p>The Taj Mahal is a white marble mausoleum in Agra, India. It is one of the most famous monuments in the world and a symbol of love, built by Mughal Emperor Shah Jahan in memory of his wife Mumtaz Mahal.</p>
+        <button onclick="hideInfo(event, 'tajmahal')">Hide Info</button>
+      </div>
+    </div>
+
+    <!-- Gateway of India -->
+    <div class="place" id="gatewayofindia" onclick="toggleInfo('gatewayofindia')">
+      <img src="images/gatewayofindia.jpg" alt="Gateway of India">
+      <h2>Gateway of India</h2>
+      <div class="info" id="gatewayofindia-info">
+        <p>The Gateway of India is a historic monument in Mumbai, India. It was built in 1911 to commemorate the visit of King George V and Queen Mary to India and is an iconic symbol of the city.</p>
+        <button onclick="hideInfo(event, 'gatewayofindia')">Hide Info</button>
+      </div>
+    </div>
+
+    <!-- Red Fort -->
+    <div class="place" id="redfort" onclick="toggleInfo('redfort')">
+      <img src="images/redfort.jpg" alt="Red Fort">
+      <h2>Red Fort</h2>
+      <div class="info" id="redfort-info">
+        <p>The Red Fort is a historic fortification in the city of Delhi, India. It served as the main residence of the Mughal emperors for around 200 years, and is now a UNESCO World Heritage Site.</p>
+        <button onclick="hideInfo(event, 'redfort')">Hide Info</button>
+      </div>
+    </div>
+
+    <!-- Hawa Mahal -->
+    <div class="place" id="hawa_mahal" onclick="toggleInfo('hawa_mahal')">
+      <img src="images/hawa_mahal.jpg" alt="Hawa Mahal">
+      <h2>Hawa Mahal</h2>
+      <div class="info" id="hawa_mahal-info">
+        <p>Hawa Mahal is a palace in Jaipur, India, built by Maharaja Sawai Pratap Singh. It is known for its unique five-story façade with 953 small windows, or 'jharokhas', which allow cool air to pass through, giving it its name 'Palace of Winds'.</p>
+        <button onclick="hideInfo(event, 'hawa_mahal')">Hide Info</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Function to toggle the visibility of the information section
+    function toggleInfo(place) {
+      const infoSection = document.getElementById(`${place}-info`);
+      
+      // Toggle visibility of the information section
+      if (infoSection.style.display === "block") {
+        infoSection.style.display = "none";
+      } else {
+        infoSection.style.display = "block";
+      }
+    }
+
+    // Function to hide the information when the "Hide Info" button is clicked
+    function hideInfo(event, place) {
+      event.stopPropagation();  // Prevents the event from bubbling up and triggering toggleInfo again
+      const infoSection = document.getElementById(`${place}-info`);
+      infoSection.style.display = "none";  // Hide the information
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department Info</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery Mobile CSS for mobile transitions -->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+    <!-- Internal CSS -->
+    <style>
+        .department-box {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        .department-box button {
+            font-size: 1.2em;
+            padding: 15px;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+        }
+        .department-box button:hover {
+            background-color: #0056b3;
+        }
+        .it-btn {
+            background-color: #007bff;
+        }
+        .comp-btn {
+            background-color: #28a745;
+        }
+        .etc-btn {
+            background-color: #17a2b8;
+        }
+        .mech-btn {
+            background-color: #ffc107;
+        }
+        .elect-btn {
+            background-color: #dc3545;
+        }
+        .container {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Home Page -->
+    <div data-role="page" id="home">
+        <div data-role="header">
+            <h1>Departments</h1>
+        </div>
+        <div data-role="content">
+            <div class="container">
+                <div class="row">
+                    <!-- IT Department -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="department-box">
+                            <button class="it-btn" onclick="location.href='#itPage'">IT</button>
+                        </div>
+                    </div>
+                    <!-- COMP Department -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="department-box">
+                            <button class="comp-btn" onclick="location.href='#compPage'">COMP</button>
+                        </div>
+                    </div>
+                    <!-- ETC Department -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="department-box">
+                            <button class="etc-btn" onclick="location.href='#etcPage'">ETC</button>
+                        </div>
+                    </div>
+                    <!-- MECH Department -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="department-box">
+                            <button class="mech-btn" onclick="location.href='#mechPage'">MECH</button>
+                        </div>
+                    </div>
+                    <!-- ELECT Department -->
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="department-box">
+                            <button class="elect-btn" onclick="location.href='#electPage'">ELECT</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- IT Department Page -->
+    <div data-role="page" id="itPage">
+        <div data-role="header">
+            <h1>IT Department</h1>
+        </div>
+        <div data-role="content">
+            <a href="#home" data-role="button">Go to All Departments</a>
+        </div>
+    </div>
+
+    <!-- COMP Department Page -->
+    <div data-role="page" id="compPage">
+        <div data-role="header">
+            <h1>COMP Department</h1>
+        </div>
+        <div data-role="content">
+            <a href="#home" data-role="button">Go to All Departments</a>
+        </div>
+    </div>
+
+    <!-- ETC Department Page -->
+    <div data-role="page" id="etcPage">
+        <div data-role="header">
+            <h1>ETC Department</h1>
+        </div>
+        <div data-role="content">
+            <a href="#home" data-role="button">Go to All Departments</a>
+        </div>
+    </div>
+
+    <!-- MECH Department Page -->
+    <div data-role="page" id="mechPage">
+        <div data-role="header">
+            <h1>MECH Department</h1>
+        </div>
+        <div data-role="content">
+            <a href="#home" data-role="button">Go to All Departments</a>
+        </div>
+    </div>
+
+    <!-- ELECT Department Page -->
+    <div data-role="page" id="electPage">
+        <div data-role="header">
+            <h1>ELECT Department</h1>
+        </div>
+        <div data-role="content">
+            <a href="#home" data-role="button">Go to All Departments</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
